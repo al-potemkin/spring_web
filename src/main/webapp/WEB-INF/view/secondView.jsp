@@ -11,6 +11,6 @@
     <title>Second view</title>
 </head>
 <body>
-<h2>Value: ${param.formValue}</h2>
+<h2>Value: ${valuerFromRequest}</h2>
 </body>
 </html>
