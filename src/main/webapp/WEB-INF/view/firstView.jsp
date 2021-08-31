@@ -12,6 +12,7 @@
                 <form:options items="${product.numbers}"/>
             </form:select>
     <form:radiobuttons path="type" items="${product.types}"/>
+    <form:checkboxes path="info" items="${product.infoMap}"/>
     <input type="submit" value="submit">
 </form:form>
 

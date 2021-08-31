@@ -13,14 +13,10 @@ public class Product {
     private String type;
     private Map<String, String> types;
 
-    public Product() {
-        insert();
-    }
+    private String[] info;
+    private Map<String, String> infoMap;
 
-    public Product(String name, String price, String type) {
-        this.name = name;
-        this.price = price;
-        this.type = type;
+    public Product() {
         insert();
     }
 
@@ -31,6 +27,9 @@ public class Product {
         types = new HashMap<>();
         types.put("first type", "firstType");
         types.put("second type", "secondType");
+        infoMap = new HashMap<>();
+        infoMap.put("info1", "first value");
+        infoMap.put("info2", "second value");
     }
 
     public String getName() {
@@ -79,5 +78,21 @@ public class Product {
 
     public void setTypes(Map<String, String> types) {
         this.types = types;
+    }
+
+    public String[] getInfo() {
+        return info;
+    }
+
+    public void setInfo(String[] info) {
+        this.info = info;
+    }
+
+    public Map<String, String> getInfoMap() {
+        return infoMap;
+    }
+
+    public void setInfoMap(Map<String, String> infoMap) {
+        this.infoMap = infoMap;
     }
 }
