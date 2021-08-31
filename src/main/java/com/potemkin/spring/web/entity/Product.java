@@ -1,10 +1,19 @@
 package com.potemkin.spring.web.entity;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Product {
+    //@NotNull, @NotEmpty
+    @NotBlank(message = "field is empty")
+    @Size(min = 3, message = "min 3")
+    @Size(max = 5, message = "max 5")
     private String name;
+    @NotBlank(message = "field is empty")
+    @Size(min = 3, max = 5, message = "min 3, max 5")
     private String price;
 
     private String number;
@@ -12,7 +21,6 @@ public class Product {
 
     private String type;
     private Map<String, String> types;
-
     private String[] info;
     private Map<String, String> infoMap;
 

@@ -7,11 +7,16 @@
 <body>
 <form:form action="showSecond" modelAttribute="product">
     Name: <form:input path="name"/>
+    <form:errors path="name"/>
+    <br>
     Price: <form:input path="price"/>
+    <br>
     Number: <form:select path="number">
                 <form:options items="${product.numbers}"/>
             </form:select>
+    <br>
     <form:radiobuttons path="type" items="${product.types}"/>
+    <br>
     <form:checkboxes path="info" items="${product.infoMap}"/>
     <input type="submit" value="submit">
 </form:form>
