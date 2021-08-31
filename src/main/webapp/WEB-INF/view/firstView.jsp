@@ -15,6 +15,9 @@
     Pattern check: <form:input path="field"/>
     <form:errors path="field"/>
     <br>
+    Email: <form:input path="email"/>
+    <form:errors path="email"/>
+    <br>
     Number: <form:select path="number">
                 <form:options items="${product.numbers}"/>
             </form:select>

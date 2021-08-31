@@ -1,5 +1,7 @@
 package com.potemkin.spring.web.entity;
 
+import com.potemkin.spring.web.validation.CheckEmail;
+
 import javax.validation.constraints.*;
 
 import java.util.HashMap;
@@ -16,6 +18,8 @@ public class Product {
     private int price;
     @Pattern(regexp = "\\w+", message = "must contains at least 1 letter")
     private String field;
+    @CheckEmail(value = "@google.com", message = "@google.com")
+    private String email;
 
     private String number;
     private Map<String, String> numbers;
@@ -111,5 +115,13 @@ public class Product {
 
     public void setField(String field) {
         this.field = field;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
