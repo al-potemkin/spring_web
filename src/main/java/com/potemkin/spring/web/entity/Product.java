@@ -10,20 +10,27 @@ public class Product {
     private String number;
     private Map<String, String> numbers;
 
+    private String type;
+    private Map<String, String> types;
+
     public Product() {
-        insertNumbers();
+        insert();
     }
 
-    public Product(String name, String price) {
+    public Product(String name, String price, String type) {
         this.name = name;
         this.price = price;
-        insertNumbers();
+        this.type = type;
+        insert();
     }
 
-    private void insertNumbers() {
+    private void insert() {
         numbers = new HashMap<>();
         numbers.put("one", "1");
         numbers.put("two", "2");
+        types = new HashMap<>();
+        types.put("first type", "firstType");
+        types.put("second type", "secondType");
     }
 
     public String getName() {
@@ -56,5 +63,21 @@ public class Product {
 
     public void setNumbers(Map<String, String> numbers) {
         this.numbers = numbers;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Map<String, String> getTypes() {
+        return types;
+    }
+
+    public void setTypes(Map<String, String> types) {
+        this.types = types;
     }
 }
