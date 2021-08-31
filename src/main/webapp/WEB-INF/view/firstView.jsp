@@ -10,6 +10,10 @@
     <form:errors path="name"/>
     <br>
     Price: <form:input path="price"/>
+    <form:errors path="price"/>
+    <br>
+    Pattern check: <form:input path="field"/>
+    <form:errors path="field"/>
     <br>
     Number: <form:select path="number">
                 <form:options items="${product.numbers}"/>

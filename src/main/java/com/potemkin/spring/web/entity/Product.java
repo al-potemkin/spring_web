@@ -1,7 +1,6 @@
 package com.potemkin.spring.web.entity;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +11,11 @@ public class Product {
     @Size(min = 3, message = "min 3")
     @Size(max = 5, message = "max 5")
     private String name;
-    @NotBlank(message = "field is empty")
-    @Size(min = 3, max = 5, message = "min 3, max 5")
-    private String price;
+    @Min(value = 5, message = "value must be higher than 4")
+    @Max(value = 10, message = "value must be lower than 11")
+    private int price;
+    @Pattern(regexp = "\\w+", message = "must contains at least 1 letter")
+    private String field;
 
     private String number;
     private Map<String, String> numbers;
@@ -48,11 +49,11 @@ public class Product {
         this.name = name;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -102,5 +103,13 @@ public class Product {
 
     public void setInfoMap(Map<String, String> infoMap) {
         this.infoMap = infoMap;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
     }
 }
