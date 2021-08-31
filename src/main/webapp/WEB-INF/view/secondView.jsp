@@ -6,5 +6,6 @@
 <body>
 <h2>Name: ${product.name}</h2>
 <h2>Price: ${product.price}</h2>
+<h2>Number: ${product.number}</h2>
 </body>
 </html>

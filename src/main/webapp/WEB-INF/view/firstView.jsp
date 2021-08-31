@@ -7,9 +7,10 @@
 <body>
 <form:form action="showSecond" modelAttribute="product">
     Name: <form:input path="name"/>
-    <br>
     Price: <form:input path="price"/>
-    <br>
+    Number: <form:select path="number">
+                <form:options items="${product.numbers}"/>
+            </form:select>
     <input type="submit" value="submit">
 </form:form>
 
