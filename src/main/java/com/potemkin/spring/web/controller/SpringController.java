@@ -1,23 +1,22 @@
-package com.potemkin.spring.web;
+package com.potemkin.spring.web.controller;
 
+import com.potemkin.spring.web.entity.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class SpringController {
 
     @RequestMapping("/")
-    public String first(){
+    public String first(Model model) {
+        model.addAttribute("product", new Product());
         return "firstView";
     }
 
     @RequestMapping("showSecond")
-    public String second(@RequestParam("formValue") String param, Model model){
-        model.addAttribute("valuerFromRequest", param);
+    public String second(@ModelAttribute("product") Product product) {
         return "secondView";
     }
 
