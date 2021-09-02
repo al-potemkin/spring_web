@@ -1,28 +1,26 @@
 package com.potemkin.spring.web.controller;
 
-import com.potemkin.spring.web.entity.Product;
-import javax.validation.Valid;
+import com.potemkin.spring.web.entity.User;
+import com.potemkin.spring.web.repoitory.interfaces.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class SpringController {
 
+    @Autowired
+    private UserRepo userRepo;
+
     @RequestMapping("/")
-    public String first(Model model) {
-        model.addAttribute("product", new Product());
-        return "firstView";
+    public String showAllUsers(Model model) {
+        List<User> userList = userRepo.getUsers();
+        model.addAttribute("users", userList);
+        return "usersView";
     }
 
-    @RequestMapping("showSecond")
-    public String second(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult) {
-        if (bindingResult.hasErrors())
-            return "firstView";
-        else
-            return "secondView";
-    }
 
 }
