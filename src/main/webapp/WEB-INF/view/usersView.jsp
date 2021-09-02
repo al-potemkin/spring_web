@@ -23,6 +23,7 @@
                     <th scope="col">login</th>
                     <th scope="col">password</th>
                     <th scope="col">username</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,10 +33,25 @@
                         <td>${user.login}</td>
                         <td>${user.password}</td>
                         <td>${user.userSurname} ${user.userName}</td>
+                        <td>
+                            <c:url var="updateUserButton" value="/updateUser">
+                                <c:param name="userId" value="${user.userId}"/>
+                            </c:url>
+                            <c:url var="deleteUserButton" value="/deleteUser">
+                                <c:param name="userId" value="${user.userId}"/>
+                            </c:url>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <input type="button" class="btn btn-secondary"
+                                       onclick="window.location.href='${updateUserButton}'" value="Update"/>
+                                <input type="button" class="btn btn-secondary"
+                                       onclick="window.location.href='${deleteUserButton}'" value="Delete"/>
+                            </div>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </table>
+            <input type="button" class="btn btn-info" onclick="window.location.href = 'add'" value="Add user"></input>
         </div>
         <div class="col"></div>
     </div>
